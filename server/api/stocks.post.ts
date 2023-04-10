@@ -8,9 +8,10 @@ export default eventHandler(async (event) => {
   //   console.log(error, value, body);
   if (error) {
     console.log(error.message);
+    const regex = /"/gm;
     return {
       statusCode: 400,
-      body: error.message,
+      error: error.message.replace(regex, ""),
     };
   }
   //   try {
