@@ -1,9 +1,10 @@
-import { StockPurchaseSchema } from "../validation";
-import StockPurchase from "../db/models/stock-purchase.model";
+import { UserSchema } from "@/server/validation";
+import User from "~~/server/db/models/user.model";
+import { e } from "ofetch/dist/error-04138797";
 
 export default eventHandler(async (event) => {
   const body = await readBody(event);
-  const { error, value } = StockPurchaseSchema.validate(body);
+  const { error, value } = UserSchema.validate(body);
   // //   console.log(error, value, body);
   if (error) {
     const regex = /"/gm;
@@ -13,7 +14,10 @@ export default eventHandler(async (event) => {
     };
   }
   try {
-    await StockPurchase.create(body);
+    const user = await User.findOne({ email: body.email });
+    if (user)
+      return { error: true, message: "user already exists", statusCode: 200 };
+    await User.create(body);
     return { message: "success" };
   } catch (e) {
     return {
