@@ -2,7 +2,7 @@
 import { onMounted } from "vue";
 import { initFlowbite } from "flowbite";
 
-const form = reactive({ stock: "", price: 0, qty: 0, date:null });
+const form = reactive({ stock: "", price: 0, qty: 0, date: null });
 const submitted = { success: false };
 
 const submit = () => {
@@ -24,10 +24,10 @@ const resetForm = () => {
 };
 onMounted(async () => {
   initFlowbite();
-  const datepickerEl = document.getElementById('datepickerId');
+  const datepickerEl = document.getElementById("datepickerId");
   new Datepicker(datepickerEl, {
-      // options
-  }); 
+    // options
+  });
 });
 </script>
 
@@ -108,7 +108,10 @@ onMounted(async () => {
                 </svg>
               </div>
               <input
-                id="datePicker"
+                id="datapicker"
+                datepicker-autohide
+                datepicker
+                datepicker-title="Flowbite datepicker"
                 type="text"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Select date"
