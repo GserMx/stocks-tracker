@@ -9,7 +9,7 @@ export default defineNuxtConfig({
     head: {
       script: [
         {
-          src: "https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/datepicker.min.js",
+          src: "https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/datepicker.min.js",
         },
       ],
     },

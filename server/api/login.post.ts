@@ -15,12 +15,10 @@ export default eventHandler(async (event) => {
     const user = await User.findOne({ email: body.email }).exec();
     if (user) {
       const validPass = await user.comparePassword(body.password);
-      console.log(validPass);
       if (validPass) {
         res.error = false;
         res.statusCode = 200;
         res.message = _.pick(user, ["email", "_id"]);
-
         return res;
       } else {
         return res;
