@@ -4,6 +4,7 @@ export const StockPurchaseSchema = Joi.object({
   stock: Joi.string().required(),
   price: Joi.number().required(),
   qty: Joi.number().required(),
+  date: Joi.date().required(),
 });
 
 export const UserSchema = Joi.object({

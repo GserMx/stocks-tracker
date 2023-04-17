@@ -7,7 +7,8 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "dev-debug": "node --debug node_modules/.bin/nuxt"
+    "dev-debug": "node --debug node_modules/.bin/nuxt",
+    "start": "node .output/server/index.mjs"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
